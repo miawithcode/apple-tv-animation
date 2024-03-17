@@ -29,12 +29,11 @@ const Hero = () => {
         <motion.div
           className="flex h-full flex-col items-start justify-end "
           variants={{
-            hidden: { opacity: 0, transition: { duration: 0.7 } },
-            visible: { opacity: 1, transition: { duration: 0.7 } },
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
           }}
-          initial="hidden"
           whileInView="visible"
-          exit="visible"
+          exit="hidden"
           animate="hidden"
           viewport={{ amount: 1 }}
         >

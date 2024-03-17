@@ -4,7 +4,7 @@ import Container from "./Container";
 const Header = () => {
   return (
     <>
-      <header className="bg-backgroundContrast text-white">
+      <header className="bg-backgroundContrast relative z-20 text-white">
         <Container className="flex min-h-[--header-nav-height] items-center">
           <a
             href="/"
@@ -15,7 +15,7 @@ const Header = () => {
         </Container>
       </header>
 
-      <div className="bg-backgroundContrast sticky top-0 text-white z-20">
+      <div className="bg-backgroundContrast sticky top-0 z-20 text-white">
         <Container className="flex min-h-[--header-height] items-center justify-between">
           <p className="text-xl">Apple TV+</p>
           <Button size="sm">Stream now</Button>

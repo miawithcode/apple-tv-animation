@@ -3,11 +3,11 @@ import Button from "../Button";
 
 const Hero = () => {
   return (
-    <div className="bg-background relative text-white">
-      <div className="absolute left-0 top-0 w-full">
+    <div className="h-[300vh] bg-background relative text-white">
+      <div className="absolute -top-[--header-total-height] left-0 h-[200vh] w-full">
         <img
           src="/posters/boy-showering.jpg"
-          className="h-[--hero-height] w-full object-cover"
+          className="sticky top-0 h-screen w-full object-cover"
         ></img>
       </div>
 

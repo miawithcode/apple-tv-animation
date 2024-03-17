@@ -1,30 +1,12 @@
-import Container from "./components/Container";
 import Header from "./components/Header";
+import Hero from "./components/section/Hero";
 
 const App = () => {
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
-        <div>
-          <Container>Hero Component</Container>
-        </div>
-
-        {/* usps */}
-        <div>
-          <Container> </Container>
-        </div>
-
-        {/* 3 cols layout */}
-        <div>
-          <Container> </Container>
-        </div>
-
-        {/* Carousel with posters */}
-        <div>
-          <Container> </Container>
-        </div>
+        <Hero />
       </main>
     </>
   );

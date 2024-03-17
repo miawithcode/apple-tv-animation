@@ -1,3 +1,4 @@
+import Button from "./Button";
 import Container from "./Container";
 
 const Header = () => {
@@ -15,8 +16,9 @@ const Header = () => {
       </header>
 
       <div className="bg-backgroundContrast sticky top-0  text-white">
-        <Container className="flex min-h-[52px] items-center text-xl">
-          Apple TV+
+        <Container className="flex min-h-[52px] items-center justify-between">
+          <p>Apple TV+</p>
+          <Button size="sm">Stream now</Button>
         </Container>
       </div>
     </>

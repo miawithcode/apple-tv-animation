@@ -13,14 +13,14 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0, 1], [1, 1, 0]);
 
   return (
-    <div className="bg-background relative h-[300vh] text-white">
+    <div className="bg-background relative text-white">
       <motion.div
         style={{ opacity }}
         ref={videoContainerRef}
         className="absolute -top-[--header-total-height] left-0 h-[200vh] w-full"
       >
         <img
-          src="/posters/sea.jpg"
+          src="/posters/donkeys.jpg"
           className="sticky top-0 h-screen w-full object-cover"
         ></img>
       </motion.div>
@@ -37,7 +37,7 @@ const Hero = () => {
           animate="hidden"
           viewport={{ amount: 1 }}
         >
-          <h1 className="mb-10 text-5xl font-bold">
+          <h1 className="mb-10 text-7xl font-bold">
             All Apple Originals.
             <br />
             Only on Apply TV+

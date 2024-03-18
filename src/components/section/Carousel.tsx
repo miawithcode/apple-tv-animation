@@ -31,29 +31,50 @@ const Carousel = () => {
       </div>
 
       <div className="space-y-3">
-        <SmallCarousel movies={randomMovieSet1} />
-        <SmallCarousel movies={randomMovieSet2} />
+        <SmallCarousel movies={randomMovieSet1} direction="left" />
+        <div className="[--duration: 74s] [--carousel-offset: -32px]">
+          <SmallCarousel
+            movies={randomMovieSet2}
+            direction="right"
+            position="flex justify-end"
+          />
+        </div>
       </div>
     </div>
   );
 };
 export default Carousel;
 
-const SmallCarousel = ({ movies }: { movies: Movie[] }) => {
+type SmallCarouselProps = {
+  movies: Movie[];
+  direction?: "left" | "right";
+  position?: string;
+};
+
+const SmallCarousel = ({ movies, direction, position }: SmallCarouselProps) => {
+  const animationClass =
+    direction === "left"
+      ? "animate-carousel-move-left"
+      : "animate-carousel-move-right";
+
   return (
-    <div className="flex gap-3 overflow-clip">
-      {movies.map((movie, index) => (
-        <div
-          className="aspect-video w-[23vw] shrink-0"
-          key={`${movie.name} - ${index}`}
-        >
-          <img
-            className="h-full w-full rounded-xl object-cover"
-            src={movie.poster}
-            alt={movie.name}
-          />
-        </div>
-      ))}
+    <div className="overflow-clip">
+      <div
+        className={`${animationClass} flex gap-3  ${position} left-[var(--carousel-offset, 0px)] relative`}
+      >
+        {movies.map((movie, index) => (
+          <div
+            className="aspect-video w-[23vw] shrink-0"
+            key={`${movie.name} - ${index}`}
+          >
+            <img
+              className="h-full w-full rounded-xl object-cover"
+              src={movie.poster}
+              alt={movie.name}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

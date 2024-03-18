@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       background: "#000",
@@ -17,7 +17,7 @@ export default {
         "Helvetica",
         "Arial",
         "sans-serif",
-      ]
+      ],
     },
     fontSize: {
       xs: "0.75rem", // 12px
@@ -30,10 +30,24 @@ export default {
       "4xl": ["2.5rem", "1.1"], // 40px
       "5xl": ["4rem", "1.0625"], // 64px
       "6xl": ["4.5rem", "1.05"], // 72px
-      "7xl": ["6rem","1.04"] // 96
+      "7xl": ["6rem", "1.04"], // 96
+    },
+    keyframes: {
+      "carousel-move-left": {
+        "0%": { transform: "translateX(0)" },
+        "100%": { transform: "translateX(-100%)" },
+      },
+      "carousel-move-right": {
+        "0%": { transform: "translateX(0)" },
+        "100%": { transform: "translateX(100%)" },
+      },
+    },
+    animation: {
+      "carousel-move-left": "carousel-move-left var(--duration, 80s) infinite",
+      "carousel-move-right":
+        "carousel-move-right var(--duration, 80s) infinite",
     },
     extend: {},
   },
   plugins: [],
 };
-

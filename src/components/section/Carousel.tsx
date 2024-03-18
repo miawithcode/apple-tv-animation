@@ -1,10 +1,38 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { mainMovies, randomMovieSet1, randomMovieSet2 } from "../../movies";
 import type { Movie } from "../../movies";
+import { useMemo, useRef } from "react";
+import { useWindowSize } from "react-use";
 
 const Carousel = () => {
+  const { width, height } = useWindowSize();
+
+  const carouselWrapperRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: carouselWrapperRef,
+    offset: ["start start", "end start"],
+  });
+
+  const maximumScale = useMemo(() => {
+    const windowYRatio = height / width;
+    const xScale = 1.66667; // based on 100vw / 60vw
+    const yScale = xScale * (16 / 9) * windowYRatio;
+    return Math.max(xScale, yScale);
+  }, [width, height]);
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.66],
+    [maximumScale * 1.1, maximumScale, 1],
+  );
+
   return (
     <div className="bg-background pb-8">
-      <div className="mt-[-100vh] h-[300vh] overflow-clip">
+      <div
+        className="mt-[-100vh] h-[300vh] overflow-clip"
+        ref={carouselWrapperRef}
+      >
         <div className="sticky top-0 flex h-screen items-center justify-center">
           <div className="mb-5 flex gap-5">
             <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
@@ -14,13 +42,16 @@ const Carousel = () => {
                 alt={mainMovies[0].name}
               />
             </div>
-            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+            <motion.div
+              style={{ scale }}
+              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+            >
               <img
                 className="h-full w-full object-cover"
                 src={mainMovies[1].poster}
                 alt={mainMovies[1].name}
               />
-            </div>
+            </motion.div>
             <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
               <img
                 className="h-full w-full object-cover"

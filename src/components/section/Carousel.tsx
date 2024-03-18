@@ -1,7 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { mainMovies, randomMovieSet1, randomMovieSet2 } from "../../movies";
 import type { Movie } from "../../movies";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
 
 const Carousel = () => {
@@ -39,8 +44,20 @@ const Carousel = () => {
     [60, 0],
   );
 
+  const [carouselVariant, setCarouselVariant] = useState<"inactive" | "active">(
+    "inactive",
+  );
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (progress >= 0.67) {
+      setCarouselVariant("active");
+    } else {
+      setCarouselVariant("inactive");
+    }
+  });
+
   return (
-    <div className="bg-background pb-8">
+    <motion.div animate={carouselVariant} className="bg-background pb-8">
       <div
         className="mt-[-100vh] h-[300vh] overflow-clip"
         ref={carouselWrapperRef}
@@ -59,7 +76,7 @@ const Carousel = () => {
             </motion.div>
             <motion.div
               style={{ scale }}
-              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+              className="relative aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
             >
               <img
                 className="h-full w-full object-cover"
@@ -81,7 +98,14 @@ const Carousel = () => {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <motion.div
+        variants={{
+          active: { opacity: 1, y: 0 },
+          inactive: { opacity: 0, y: 20 },
+        }}
+        transition={{ duration: 0.4 }}
+        className="-mt-[calc(100vh-(60vw*(16/9))/2)] space-y-3 "
+      >
         <SmallCarousel movies={randomMovieSet1} direction="left" />
         <div className="[--duration: 74s] [--carousel-offset: -32px]">
           <SmallCarousel
@@ -90,8 +114,8 @@ const Carousel = () => {
             position="flex justify-end"
           />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 export default Carousel;

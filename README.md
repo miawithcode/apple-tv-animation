@@ -2,7 +2,10 @@
 
 > Recreate Apple TV animation using Framer Motion and Tailwind CSS
 
-![](/public/screenshot.png)
+<div align="center">
+  <img src="./public/screenshot.png">
+  <a href="https://apple-tv-animation.vercel.app/">View Demo</a>
+</div>
 
 ## Reference
 

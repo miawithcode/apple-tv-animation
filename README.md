@@ -2,6 +2,8 @@
 
 > Recreate Apple TV animation using Framer Motion and Tailwind CSS
 
+![](/public/screenshot.png)
+
 ## Reference
 
 - [Apple TV+ on Apple official site](https://www.apple.com/apple-tv-plus/)

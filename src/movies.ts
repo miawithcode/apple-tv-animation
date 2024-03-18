@@ -14,7 +14,7 @@ const movies = [
   { poster: "/posters/reading.jpg", name: "Reading" },
   { poster: "/posters/crossroad.jpg", name: "Crossroad" },
   { poster: "/posters/boy-showering.jpg", name: "Showering Boys" },
-  { poster: "/posters/lover.jpg", name: "Lover" },
+  { poster: "/posters/clark.jpg", name: "Clark" },
   { poster: "/posters/space.jpg", name: "Space" },
   { poster: "/posters/hubble.jpg", name: "Hubble Telescope" },
   { poster: "/posters/paris.jpg", name: "Paris" },

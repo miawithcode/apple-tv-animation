@@ -67,7 +67,7 @@ const Carousel = () => {
           <div className="mb-5 flex gap-5">
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXLeft }}
-              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+              className="aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
               <img
                 className="h-full w-full object-cover"
@@ -77,7 +77,7 @@ const Carousel = () => {
             </motion.div>
             <motion.div
               style={{ scale }}
-              className="relative aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+              className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
               <img
                 className="h-full w-full object-cover"
@@ -89,7 +89,7 @@ const Carousel = () => {
                   active: { opacity: 1 },
                   inactive: { opacity: 0 },
                 }}
-                className="absolute bottom-0 left-0 flex w-full items-center justify-between p-5 text-lg text-white"
+                className="absolute bottom-0 left-0 flex w-full flex-col items-center gap-4 p-5 text-lg text-white md:flex-row md:justify-between md:gap-0"
               >
                 <p>Best video title ever</p>
                 <Button>Watch now</Button>
@@ -97,7 +97,7 @@ const Carousel = () => {
             </motion.div>
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXRight }}
-              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+              className="aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
               <img
                 className="h-full w-full object-cover"
@@ -115,7 +115,7 @@ const Carousel = () => {
           inactive: { opacity: 0, y: 20 },
         }}
         transition={{ duration: 0.4 }}
-        className="-mt-[calc(100vh-(60vw*(16/9))/2)] space-y-3 "
+        className="-mt-[calc((100vh-(300px*(16/9)))/2)] space-y-3 p-4 md:-mt-[calc((100vh-(60vw*(9/16)))/2)]"
       >
         <SmallCarousel movies={randomMovieSet1} direction="left" />
         <div className="[--duration: 74s] [--carousel-offset: -32px]">
@@ -150,7 +150,7 @@ const SmallCarousel = ({ movies, direction, position }: SmallCarouselProps) => {
       >
         {movies.map((movie, index) => (
           <div
-            className="aspect-video w-[23vw] shrink-0"
+            className="aspect-video w-[40vw] shrink-0 md:w-[23vw]"
             key={`${movie.name} - ${index}`}
           >
             <img

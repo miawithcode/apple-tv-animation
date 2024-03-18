@@ -8,6 +8,7 @@ import { mainMovies, randomMovieSet1, randomMovieSet2 } from "../../movies";
 import type { Movie } from "../../movies";
 import { useMemo, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
+import Button from "../Button";
 
 const Carousel = () => {
   const { width, height } = useWindowSize();
@@ -57,7 +58,7 @@ const Carousel = () => {
   });
 
   return (
-    <motion.div animate={carouselVariant} className="bg-background pb-8">
+    <motion.div animate={carouselVariant} className="bg-background pb-16">
       <div
         className="mt-[-100vh] h-[300vh] overflow-clip"
         ref={carouselWrapperRef}
@@ -83,6 +84,16 @@ const Carousel = () => {
                 src={mainMovies[1].poster}
                 alt={mainMovies[1].name}
               />
+              <motion.div
+                variants={{
+                  active: { opacity: 1 },
+                  inactive: { opacity: 0 },
+                }}
+                className="absolute bottom-0 left-0 flex w-full items-center justify-between p-5 text-lg text-white"
+              >
+                <p>Best video title ever</p>
+                <Button>Watch now</Button>
+              </motion.div>
             </motion.div>
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXRight }}

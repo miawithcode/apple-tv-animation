@@ -13,7 +13,6 @@ const App = () => {
           <Usps />
         </div>
         <Carousel />
-        <div className="h-[300vh]"></div>
       </main>
     </>
   );

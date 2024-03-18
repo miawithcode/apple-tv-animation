@@ -27,6 +27,18 @@ const Carousel = () => {
     [maximumScale * 1.1, maximumScale, 1],
   );
 
+  const postersOpacity = useTransform(scrollYProgress, [0.63, 0.66], [0, 1]);
+  const posterTranslateXLeft = useTransform(
+    scrollYProgress,
+    [0.63, 0.66],
+    [-60, 0],
+  );
+  const posterTranslateXRight = useTransform(
+    scrollYProgress,
+    [0.63, 0.66],
+    [60, 0],
+  );
+
   return (
     <div className="bg-background pb-8">
       <div
@@ -35,13 +47,16 @@ const Carousel = () => {
       >
         <div className="sticky top-0 flex h-screen items-center justify-center">
           <div className="mb-5 flex gap-5">
-            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+            <motion.div
+              style={{ opacity: postersOpacity, x: posterTranslateXLeft }}
+              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+            >
               <img
                 className="h-full w-full object-cover"
                 src={mainMovies[0].poster}
                 alt={mainMovies[0].name}
               />
-            </div>
+            </motion.div>
             <motion.div
               style={{ scale }}
               className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
@@ -52,13 +67,16 @@ const Carousel = () => {
                 alt={mainMovies[1].name}
               />
             </motion.div>
-            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+            <motion.div
+              style={{ opacity: postersOpacity, x: posterTranslateXRight }}
+              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+            >
               <img
                 className="h-full w-full object-cover"
                 src={mainMovies[2].poster}
                 alt={mainMovies[2].name}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

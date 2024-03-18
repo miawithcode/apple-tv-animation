@@ -8,7 +8,7 @@ const App = () => {
     <>
       <Header />
       <main>
-        <div className="bg-background">
+        <div className="bg-background relative z-10">
           <Hero />
           <Usps />
         </div>

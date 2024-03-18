@@ -4,28 +4,30 @@ import type { Movie } from "../../movies";
 const Carousel = () => {
   return (
     <div className="bg-background pb-8">
-      <div className="overflow-clip">
-        <div className="mb-5 flex justify-center gap-5">
-          <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
-            <img
-              className="h-full w-full object-cover"
-              src={mainMovies[0].poster}
-              alt={mainMovies[0].name}
-            />
-          </div>
-          <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
-            <img
-              className="h-full w-full object-cover"
-              src={mainMovies[1].poster}
-              alt={mainMovies[1].name}
-            />
-          </div>
-          <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
-            <img
-              className="h-full w-full object-cover"
-              src={mainMovies[2].poster}
-              alt={mainMovies[2].name}
-            />
+      <div className="mt-[-100vh] h-[300vh] overflow-clip">
+        <div className="sticky top-0 flex h-screen items-center justify-center">
+          <div className="mb-5 flex gap-5">
+            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+              <img
+                className="h-full w-full object-cover"
+                src={mainMovies[0].poster}
+                alt={mainMovies[0].name}
+              />
+            </div>
+            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+              <img
+                className="h-full w-full object-cover"
+                src={mainMovies[1].poster}
+                alt={mainMovies[1].name}
+              />
+            </div>
+            <div className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl">
+              <img
+                className="h-full w-full object-cover"
+                src={mainMovies[2].poster}
+                alt={mainMovies[2].name}
+              />
+            </div>
           </div>
         </div>
       </div>
